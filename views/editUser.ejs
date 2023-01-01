@@ -1,0 +1,77 @@
+<section class="text-center">
+    <div
+        class="card mx-4 mx-md-5 shadow-5-strong"
+        style="margin-top: 100px; background: hsla(0, 0%, 100%, 0.8); backdrop-filter: blur(30px)"
+    >
+        <div class="card-body py-5 px-md-5">
+            <div class="row d-flex">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <h2 class="fw-bold mb-5">Edit User</h2>
+                    <form
+                        action="/admin/editUserSubmit/<%=userListCollection._id%>"
+                        method="post"
+                        name="loginform"
+                        onsubmit="return validation()"
+                        enctype="application/x-www-form-urlencoded"
+                    >
+                        <div class="form-outline mb-4">
+                            <input
+                                type="text"
+                                id="form3Example3"
+                                name="name"
+                                id="editName"
+                                class="form-control"
+                                value="<%=userListCollection.name%>"
+                                required
+                            />
+                            <label class="form-label" for="form3Example3">Full Name</label>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <input
+                                type="email"
+                                id="form3Example3"
+                                name="email"
+                                id="editEmail"
+                                value="<%=userListCollection.email%>"
+                                class="form-control"
+                                required
+                            />
+                            <label class="form-label" for="form3Example3">Email address</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-4">Confirm</button><br />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function validation() {
+        const name = document.getElementById("editName").value;
+        const email = document.getElementById("editEmail").value;
+        // if (email == null || email == "") {
+        //     alert("email can't be blank");
+        //     return false;
+        // } else if (name == "") {
+        //     alert("Please Enter full name");
+        //     return false;
+        // }
+        value1 = true;
+        value2 = true;
+        if (name == null || name == "") {
+            value1 = false;
+            alert("Please give a name");
+        } else if (email == null || email == "") {
+            value2 = false;
+            alert("Please give an email id");
+        }
+        if (value1 && value2) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>

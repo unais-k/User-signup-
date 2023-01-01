@@ -1,0 +1,85 @@
+<header>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/"><b>Admin Panel</b></a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">All products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/admin/userList">All users</a>
+                    </li>
+                </ul>
+                <div class="dropdown">
+                    <a
+                        class="btn btn-light dropdown-toggle"
+                        href="#"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                    >
+                        More Option
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#Suzuki">Suzuki</a></li>
+                        <li><a class="dropdown-item" href="#Honda">Honda</a></li>
+                        <li><a class="dropdown-item" href="/admin/logout">Log out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<section>
+    <div class="container">
+        <table class="table mt-5">
+            <thead>
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Description</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%for (let i = 0; i < products.length; i++) { %>
+                <tr>
+                    <th><%=products[i].id%></th>
+                    <td><%=products[i].name%></td>
+                    <td><%=products[i].category%></td>
+                    <td><%=products[i].description%></td>
+                    <td><img style="width: 50px; height: 50px" src="/images/<%=products[i].image %>" /></td>
+                </tr>
+                <% } %>
+            </tbody>
+            <tbody>
+                <%for (let i = 0; i < products1.length; i++) { %>
+                <tr>
+                    <th><%=products1[i].id%></th>
+                    <td><%=products1[i].name%></td>
+                    <td><%=products1[i].category%></td>
+                    <td><%=products1[i].description%></td>
+                    <td><img style="width: 50px; height: 50px" src="/images/<%=products1[i].image %>" /></td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</section>

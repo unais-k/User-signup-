@@ -1,0 +1,106 @@
+<header>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/admin/adminHome"><b>Admin Panel</b></a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/admin/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Add Product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/admin/addUser">Add user</a>
+                    </li>
+                </ul>
+                <div class="dropdown">
+                    <a
+                        class="btn btn-light dropdown-toggle"
+                        href="#"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                    >
+                        More Option
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="/admin/logout">Log out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<section>
+    <div class="container-fluid">
+        <div class="row" style="top: 50px">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+                <div class="pb-5">
+                    <form action="/admin/searchUser/" method="post" class="d-flex p-5" role="search">
+                        <input
+                            class="form-control me-2"
+                            type="search"
+                            placeholder="Search"
+                            name="searchData"
+                            aria-label="Search"
+                        />
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+                <div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Edit</th>
+                                <th scope="col">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%for (let i = 0; i < userListCollection.length; i++) { %>
+                            <tr>
+                                <td><%=userListCollection[i].name%></td>
+                                <td><%=userListCollection[i].email%></td>
+                                <td>
+                                    <a
+                                        href="/admin/editUser/<%=userListCollection[i]._id%>"
+                                        type="button"
+                                        class="btn btn-light"
+                                        >Edit</a
+                                    >
+                                </td>
+                                <td>
+                                    <a
+                                        href="/admin/deleteUser/<%=userListCollection[i]._id%>"
+                                        type="button"
+                                        class="btn btn-light"
+                                        onclick=" return confirm('Are you sure to delete the user <%= userListCollection[i].name %>  ?')"
+                                        >Delete</a
+                                    >
+                                </td>
+                            </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

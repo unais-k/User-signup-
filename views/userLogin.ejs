@@ -1,0 +1,52 @@
+<section class="body" style="width: 100%">
+    <div class="container">
+        <div class="card1">
+            <div class="form">
+                <div class="left-side"><span></span> <span></span> <span></span> <span></span></div>
+                <div class="right-side">
+                    <div class="login"><h2>User Login</h2></div>
+                    <form action="/home" method="post" enctype="application/x-www-form-urlencoded">
+                        <!-- Email input -->
+                        <div class="form-outline mb-4">
+                            <input
+                                type="email"
+                                id="form3Example3"
+                                name="email"
+                                class="form-control"
+                                placeholder="Enter a valid email address"
+                            />
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="form-outline mb-3">
+                            <input
+                                type="password"
+                                id="form3Example4"
+                                name="password"
+                                class="form-control"
+                                placeholder="Enter password"
+                            />
+                        </div>
+                        <div class="login_btn">
+                            <button
+                                class="signup_button"
+                                type="submit"
+                                value="submit"
+                                style="padding-left: 2.5rem; padding-right: 2.5rem"
+                            >
+                                Login
+                            </button>
+                        </div>
+                        <br />
+                        <% if (message) { %>
+                        <h5 style="color: red"><%= message %></h5>
+                        <% } else { %> <% } %>
+                    </form>
+                    <div class="create margin">
+                        <a href="/signUp" class="text-info">Create new Account</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

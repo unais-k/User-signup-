@@ -1,0 +1,103 @@
+<section class="body" style="width: 100%">
+    <div class="container">
+        <div class="card1">
+            <div class="form">
+                <div class="left-side"><span></span> <span></span> <span></span> <span></span></div>
+                <div class="right-side">
+                    <!-- <div class="login"><h2>User Login</h2></div>
+                    <form action="/admin/adminHome" method="post" enctype="application/x-www-form-urlencoded">
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="form3Example3">Email address</label>
+                            <input
+                                type="email"
+                                id="form3Example3"
+                                name="email"
+                                class="form-control"
+                                placeholder="Enter a valid email address"
+                            />
+                        </div>
+
+                        <div class="form-outline mb-3">
+                            <label class="form-label" for="form3Example4">Password</label>
+                            <input
+                                type="password"
+                                id="form3Example4"
+                                name="password"
+                                class="form-control"
+                                placeholder="Enter password"
+                            />
+                        </div>
+                        <div class="login_btn">
+                            <button
+                                class="signup_button"
+                                type="submit"
+                                value="submit"
+                                style="padding-left: 2.5rem; padding-right: 2.5rem"
+                            >
+                                Login
+                            </button>
+                        </div>
+                    </form>
+                    <div class="create margin">
+                        <a href="/signUp" class="create_acc">Create your Account</a>
+                    </div> -->
+                    <form action="/signUpPost" method="post" name="loginform" onsubmit="return validation()">
+                        <div>
+                            <div class="login"><h2>Create Account</h2></div>
+                            <div class="input_text">
+                                <input
+                                    type="text"
+                                    id="form3Example3"
+                                    name="name"
+                                    class="form-control"
+                                    placeholder="Enter your Name"
+                                    required
+                                />
+                            </div>
+                            <div class="input_text">
+                                <input
+                                    type="email"
+                                    id="form3Example3"
+                                    name="email"
+                                    class="form-control"
+                                    placeholder="Enter a valid email address"
+                                    required
+                                />
+                            </div>
+                            <div class="input_text">
+                                <input
+                                    type="password"
+                                    id="form3Example4"
+                                    name="password"
+                                    class="form-control"
+                                    placeholder="Enter password"
+                                    required
+                                />
+                            </div>
+                            <div class="login_btn">
+                                <button class="signup_button" type="submit" value="submit">Sign Up</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function validation() {
+        const email = document.loginform.email.value;
+        const password = document.loginform.password.value;
+
+        if (email == null || email == "") {
+            alert("email can't be blank");
+            return false;
+        } else if (password == "") {
+            alert("Please Enter password");
+        } else if (password.length < 6) {
+            alert("Password must be at least 6 characters long.");
+            return false;
+        }
+    }
+</script>

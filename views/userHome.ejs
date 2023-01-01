@@ -1,0 +1,99 @@
+<header>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/"><b>Auto Holic</b></a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">My cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">My Order</a>
+                    </li>
+                </ul>
+                <div class="dropdown">
+                    <a
+                        class="btn btn-light dropdown-toggle"
+                        href="#"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                    >
+                        More Option
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#Suzuki">Suzuki</a></li>
+                        <li><a class="dropdown-item" href="#Honda">Honda</a></li>
+                        <li><a class="dropdown-item" href="/userLogout"> Log out </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<section id="Suzuki">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12"><h1 class="heads text-center mb-5">Suzuki</h1></div>
+            <% for(var i=0; i<products.length; i++) {%>
+            <div class="col-md-3">
+                <div class="card mb-5" style="width: 17rem; height: 25rem">
+                    <img
+                    src="<%=products[i].image %>"
+                    style="width: 16rem; height: 14rem; justify-content: center"
+                    class="card-img-top"
+                    alt="..."
+                    />
+                    <div class="card-body">
+                        <h5 class="card-title"><%= products[i].name%></h5>
+                        <h6 class="card-title"><%= products[i].category%></h6>
+                        <p class="card-text"><%= products[i].description%></p>
+                        <button class="btn btn-primary">Download</button>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</section>
+<section id="Honda">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12"><h1 class="heads text-center mb-5">Honda</h1></div>
+            <% for(var i=0; i<products1.length; i++) {%>
+                <div class="col-md-3">
+                    <div class="card mb-5" style="width: 17rem; height: 25rem">
+                        <img
+                        src="<%=products1[i].image %>"
+                        style="width: 16rem; height: 14rem; justify-content: center"
+                        class="card-img-top"
+                        alt="..."
+                        />
+                        <div class="card-body">
+                            <h5 class="card-title"><%= products1[i].name%></h5>
+                            <h6 class="card-title"><%= products1[i].category%></h6>
+                            <p class="card-text"><%= products1[i].description%></p>
+                            <button class="btn btn-primary">Download</button>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+        </div>
+    </div>
+</section>

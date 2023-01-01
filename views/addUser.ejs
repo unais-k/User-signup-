@@ -1,0 +1,108 @@
+<header>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/"><b>Admin Panel</b></a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/admin/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">All products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/admin/backToAdmin">All users</a>
+                    </li>
+                </ul>
+                <div class="dropdown">
+                    <a
+                        class="btn btn-light dropdown-toggle"
+                        href="#"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                    >
+                        More Option
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#Suzuki">Suzuki</a></li>
+                        <li><a class="dropdown-item" href="#Honda">Honda</a></li>
+                        <li><a class="dropdown-item" href="/admin/logout">Log out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<section class="text-center">
+    <div
+        class="card mx-4 mx-md-5 shadow-5-strong"
+        style="margin-top: 100px; background: hsla(0, 0%, 100%, 0.8); backdrop-filter: blur(30px)"
+    >
+        <div class="card-body py-5 px-md-5">
+            <div class="row d-flex">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <h2 class="fw-bold mb-5">Add User</h2>
+                    <form
+                        action="/admin/addUserPost"
+                        method="post"
+                        name="loginform"
+                        onsubmit="return validation()"
+                        enctype="application/x-www-form-urlencoded"
+                    >
+                        <div class="form-outline mb-4">
+                            <input type="text" id="form3Example3" name="name" class="form-control" required />
+                            <label class="form-label" for="form3Example3">Full Name</label>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <input type="email" id="form3Example3" name="email" class="form-control" required />
+                            <label class="form-label" for="form3Example3">Email address</label>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <input type="password" id="form3Example4" name="password" class="form-control" required />
+                            <label class="form-label" for="form3Example4">Password</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary mb-4">Add user</button><br />
+                    </form>
+                    <!-- <a href="/admin/backToAdmin">
+                        <button type="submit" class="btn btn-primary m-4">Go back</button>
+                    </a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function validation() {
+        const email = document.loginform.email.value;
+        const password = document.loginform.password.value;
+
+        if (email == null || email == "") {
+            alert("email can't be blank");
+            return false;
+        } else if (password == "") {
+            alert("Please Enter password");
+        } else if (password.length < 6) {
+            alert("Password must be at least 6 characters long.");
+            return false;
+        }
+    }
+</script>
